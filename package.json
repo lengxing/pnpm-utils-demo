@@ -8,10 +8,16 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json --max-warnings 0 --cache",
     "format": "prettier --write --cache .",
     "lint:fix": "pnpm run lint --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest test",
+    "coverage": "vitest run --coverage",
+    "docs:dev": "vitepress dev packages",
+    "docs:build": "vitepress build packages",
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "release": "changeset publish"
   },
   "lint-staged": {
-    "*.{vue,js,ts,jsx,tsx,md,json}": [
+    "*.{vue,js,ts,jsx,tsx,json}": [
       "pnpm run lint",
       "pnpm run format"
     ]
@@ -20,17 +26,22 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
     "@types/node": "^20.8.4",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
+    "@vitest/coverage-v8": "^0.34.6",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vitepress": "1.0.0-rc.20",
+    "vitest": "^0.34.6"
   }
 }
