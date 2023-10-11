@@ -14,7 +14,10 @@
     "docs:build": "vitepress build packages",
     "dev": "tsup --watch",
     "build": "tsup",
-    "release": "changeset publish"
+    "change": "changeset add",
+    "change:version": "changeset version",
+    "release": "pnpm build && pnpm release:only",
+    "release:only": "changeset publish"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,json}": [
